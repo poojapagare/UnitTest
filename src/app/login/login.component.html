@@ -1,0 +1,17 @@
+
+
+<div class="login">
+   <form  (ngSubmit)="getLogin(loginForm)" #loginForm="ngForm">
+    <h3>{{isLoginMode? 'Login Here' :'Register Here'}}</h3>
+    <label for="">Username</label>
+    <input type="text" name="email" ngModel required><br><br>
+    <label for="">Password</label>
+    <input type="text" name="password" ngModel required=""><br>
+    <button type="submit">{{isLoginMode ? 'Login' : 'Register'}}</button>
+    <p>Please Register Here? <a style="color: blue;" (click)="getRegister()">{{isLoginMode?'Register':'Login'}}</a></p>
+   </form>
+</div>
+<div *ngIf="errorMessage">
+    <h3 style="color: white; background-color: red;">{{errorMessage}}</h3>
+</div>
+<span *ngIf="isLoading" class="loader"></span>

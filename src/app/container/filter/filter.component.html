@@ -1,0 +1,14 @@
+<div id="filter_category">
+    <input type="radio" name="category" value="all" 
+           [(ngModel)]="selectedRadioButton"
+           (change)="onSelectedButtonChangedEvent()">
+    <label for="">{{'All ('+ all +') '}}</label>
+    <input type="radio" name="category" value="available" 
+           [(ngModel)]="selectedRadioButton"
+           (change)="onSelectedButtonChangedEvent()">
+    <label for="">{{'Available (' + available +') '}}</label>
+    <input type="radio" name="category" value="notAvailable" 
+           [(ngModel)]="selectedRadioButton"
+           (change)="onSelectedButtonChangedEvent()">
+    <label for="">{{'Not Available ('+ notavailable +') '}}</label>
+</div>

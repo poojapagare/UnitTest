@@ -1,0 +1,62 @@
+
+form {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px
+        rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+fieldset {
+
+    padding: 10px;
+    margin: 0;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    margin-left: 20px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-shadow{
+    box-shadow:2px 2px 4px #000000; 
+}
+input.ng-invalid,textarea.ng-invalid{
+    border: 2px solid red;
+}
+small{
+    color:red;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}"> 
+  <div class="modal-dialog" role="document"> 
+    <div class="modal-content"> 
+       
+      <div class="modal-body"> 
+        <h3>{{isEditMode ? 'Update Task' : 'Create Task'}}</h3>
+        <form action="" #taskForm="ngForm" (ngSubmit)="getSubmittedForm(taskForm)">
+            <input type="text" name="fname" placeholder="Enter Fname" ngModel required><br>
+            <input type="text" name="lname" placeholder="Enter Lname" ngModel required><br>
+            <div class="modal-footer"> 
+                <button type="submit" class="btn btn-danger"> 
+                      {{isEditMode ? 'Update Task' : 'Create Task'}}
+                 </button>
+                <button type="button" class="btn btn-danger" 
+                        (click)="closePopup()"> 
+                  Close 
+                </button> 
+               
+              </div> 
+        </form>
+      </div> 
+      
+    </div> 
+  </div> 
+</div>

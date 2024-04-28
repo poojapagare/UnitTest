@@ -1,0 +1,98 @@
+<div class="container" [ngClass]="formStatus">
+    <form [formGroup]="form" (ngSubmit)="onFormSubmitted()">
+        <fieldset>
+            <legend>
+                User personal information
+            </legend>
+            <label>Enter your full name</label>
+            <input type="text" name="name" formControlName="fname"/>
+            <small *ngIf="form.get('fname').invalid && form.get('fname').touched">*enter valid name</small>
+  
+            <label>Enter your email</label>
+            <input type="email" name="email" formControlName="email"/>
+            <small *ngIf="form.get('email').invalid && form.get('email').touched">*enter valid email</small>
+
+            <label>Enter your password</label>
+            <input type="password" name="pass" formControlName="pass"/>
+            <small *ngIf="form.get('pass').invalid && form.get('pass').touched">*enter valid password</small> 
+
+            <label>Confirm your password</label>
+            <input type="password" name="confirmPass" formControlName="confPass"/>
+            <small *ngIf="form.get('confPass').invalid && form.get('confPass').touched">*enter valid confirm password</small>
+          
+            <label for="">Username</label>
+            <input type="text" name="username" formControlName="username">
+            <small *ngIf="form.get('username').touched && form.get('username').invalid">*please enter valid username</small>
+            <button (click)="createUsername()">CreateUsername</button>
+
+            <label>Enter your gender</label>
+            <input
+                type="radio"
+                name="gender"
+                value="male"
+                formControlName="gender"
+            />Male
+            <input
+                type="radio"
+                name="gender"
+                value="female"
+                formControlName="gender"
+            />Female
+            <input
+                type="radio"
+                name="gender"
+                value="others"
+                formControlName="gender"
+            />Others
+
+            <label>Enter your Date of Birth</label>
+            <input type="date" name="dob" formControlName="dob"/>
+            <small *ngIf="form.get('dob').invalid && form.get('dob').touched">*enter valid dob</small>
+
+           <div formGroupName="address">
+                <label>Enter your Address:</label>
+                <textarea name="addr" formControlName="addr"></textarea>
+                <small *ngIf="form.get('address.addr').invalid && form.get('address.addr').touched">*enter valid address</small>
+                
+                <div class="row" >
+                    <div class="col-50">
+                    <label for="state">State</label>
+                    <input type="text" name="state" formControlName="state">
+                    <!-- <small *ngIf="form.get('state').invalid && form.get('state').touched">*enter valid state</small> -->
+                    </div>
+                    <div class="col-50">
+                    <label for="zip">Zip</label>
+                    <input type="text" name="zip" formControlName="zip">
+                    <!-- <small *ngIf="form.get('zip').invalid && form.get('zip').touched">*enter valid zip code</small> -->
+                    </div>
+                </div>
+           </div>
+            
+                <div class="column" formArrayName="skills" *ngFor="let control of form.get('skills')['controls']; let i=index">
+                    <label for="">Add Skills</label>
+                    <input type="text" 
+                           placeholder="add skills....."
+                           [formControlName]="i">
+                    <button (click)="deleteSkills(i)">Delete</button>       
+                </div>
+             
+             <div>
+                <button type="button" (click)="addSkills()">Add Skills</button>
+             </div>
+            <input type="submit" value="submit" [disabled]="!form.valid"/>
+        </fieldset>
+    </form>
+</div>
+
+<div>
+    <h3>Form Data</h3>
+    <h3>Name : {{formData.fname}}</h3>
+    <h3>Email : {{formData.email}}</h3>
+    <h3>Password : {{formData.pass}}</h3>
+    <h3>Username : {{formData.username}}</h3>
+    <h3>DOB : {{formData.dob}}</h3>
+    <h3>Gender : {{formData.gender}}</h3>
+    <h3>Address : {{formData.address.addr}}</h3>
+    <h3>State : {{formData.address.state}}</h3>
+    <h3>Zip : {{formData.address.zip}}</h3>
+</div>

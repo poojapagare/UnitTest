@@ -1,0 +1,7 @@
+<!-- <input type="search" id="gsearch" name="gsearch" 
+       [(ngModel)]="searchText"
+       (input)="onSearchText()"> -->
+<input type="search" #searchTextVal>       
+<!-- <button (click)="updateSeatchText()">Search</button> -->
+<button [routerLink]="'/prod'" (click)="OnSearchClicked()">Search</button>
+<p *ngIf="searchText!=''">Search For.... {{searchText}}</p>

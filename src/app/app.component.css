@@ -1,0 +1,12 @@
+.zoom {
+    padding: 50px;
+    background-color: green;
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+.active{
+  font-size: 18px;
+  font-weight: bold;
+}

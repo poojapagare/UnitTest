@@ -1,0 +1,75 @@
+<section [ngClass]="{'form-shadow':regForm.touched}">
+<form (ngSubmit)="onFormSubmitted()" #regForm="ngForm">
+    <fieldset>
+        <legend>
+            User personal information
+        </legend>
+        
+        <div>
+            <label>Enter your full name</label>
+            <input type="text" name="fname" ngModel [(ngModel)]="fullName" #fname="ngModel" required/>
+            <small *ngIf="fname.invalid && fname.touched">*name is required</small>
+        </div>
+        <div>
+            <label>Enter your email</label>
+            <input type="email" name="email" ngModel #email="ngModel" required email/>
+            <small *ngIf="email.invalid && email.touched">*email is required</small>
+        </div>
+        <div>
+            <label>Enter your password</label>
+            <input type="password" name="pass" ngModel #pass="ngModel" required/>
+            <small *ngIf="pass.invalid && pass.touched">*password is required</small>
+        </div>
+        <label>Confirm your password</label>
+        <input type="password" name="confirmPass" ngModel required/>
+         
+        <div>
+            <label for="username">UserName</label>
+            <input type="text" name="username" [(ngModel)]="username" [(ngModel)]="username" #uname="ngModel" required>
+            <!-- <input type="text" name="username" [(ngModel)]="username" #uname="ngModel" required> -->
+            <button type="button" (click)="generateUsername()" [disabled]="fname.invalid || email.invalid || pass.invalid">create username</button>
+        </div>
+
+        <label>Enter your gender</label>
+        <div *ngFor="let gen of gender">
+            <input
+                type="radio"
+                name="gender"
+                [value]="gen.value"
+                ngModel
+                required/>
+                {{gen.display}}
+           
+        </div>
+        <label>Enter your Date of Birth</label>
+        <input type="date" name="dob" ngModel required/>
+
+        <div ngModelGroup="addressData" #addr="ngModelGroup">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" ngModel required>
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" ngModel placeholder="New York" required>
+    
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" ngModel Mplaceholder="NY" required>
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" ngModel placeholder="10001" required>
+              </div>
+            </div>
+            <small *ngIf="addr.invalid && addr.touched">*Please Enter Valid Address Details</small>
+        </div>
+
+        <input type="submit" value="submit" [disabled]="regForm.invalid"/>
+    </fieldset>
+</form>
+</section>
+
+<div>
+    <h3>FullName: {{fullName}}</h3><br>
+    <h3>Email : {{emailData}}</h3><br>
+    <h3>Password : {{password}}</h3>
+</div>

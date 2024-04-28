@@ -1,0 +1,23 @@
+<app-filter [all]="totalProduct" 
+            [available]="isAvailable" 
+            [notavailable]="notAvailable"
+            (selectedRadioButtonChanged)="onFilterChanged($event)"></app-filter>
+<select>
+    <option *ngFor="let prod of productService.product; let i = index" 
+            [value]="prod.title"
+            (change)="onFilterValueChanged($event)">
+          {{prod.title}}  
+    </option>
+</select>
+
+
+<ng-container *ngFor="let prod of productService.product" >            
+
+    <!-- <app-product [product]="prod" *ngIf="selectedCategory === 'all' || prod.available.toString() === selectedCategory"></app-product> -->
+    <app-product  (click)="selectedProducts = prod"
+                  [product]="prod" 
+                  *ngIf="searchText ==='' || prod.title.toLowerCase().includes(searchText);else selectedCategoty"></app-product>
+</ng-container>
+
+
+

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" 
+               [routerLink]="'home'" 
+               routerLinkActive="active" 
+               routerLinkActiveOptions="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'async'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Async Subject</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'behav'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Behavior</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'prod'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Product</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'user'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">User</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'httpClient'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">HTTP Client</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'template'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Template Form</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'react'" routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Reactive Form</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" 
+               [routerLink]="'login'" 
+               routerLinkActive="active" 
+               routerLinkActiveOptions="{exact:true}"
+               >Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" 
+               [routerLink]="'login'" 
+               [queryParams]="{logout:true}"
+               (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ <div>
+</div>

@@ -1,0 +1,28 @@
+
+<div>
+    <button class="btn btn-primary" (click)="openTaskModal()">Create Task</button>
+    <button class="btn btn-success" (click)="featchTaskModal()">Fetch All Task</button>
+    <button class="btn btn-danger" (click)="deleteTaskModal()">Delete All Task</button>
+</div>
+<span *ngIf="isLoading" class="loader"></span>
+<div *ngIf="allTask.length<1">
+    <h2>No Task Have Been Created!!</h2>
+</div>
+<app-create-task *ngIf="showCreateTaskModal" 
+                (closeForm)="closeFormData()" 
+                (emitTaskData)="createOrUpdateTask($event)"
+                [isEditMode]="isEditTask"
+                [selectedTask]="selectedTask"></app-create-task>
+<app-task-details *ngIf="isShowTaskDetails" [currentTask]="currentTask"></app-task-details>
+<ng-container *ngIf="!isLoading">
+    <div>
+        <h3 style="color: red;" *ngIf="errorMessage">{{errorMessage}}</h3>
+    </div>
+    <div *ngFor="let task of allTask; let i=index">
+        Fname : {{task.fname}}
+        LName : {{task.lname}}
+        <button (click)="deleteTask(task.id)">Delete</button>
+        <button (click)="updateTask(task.id)">Update</button>
+        <button (click)="taskDetails(task.id)">Task Details</button>
+    </div>
+</ng-container>

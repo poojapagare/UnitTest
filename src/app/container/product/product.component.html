@@ -1,0 +1,34 @@
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Categories</th>
+        <th scope="col">Discount</th>
+        <th scope="col">Available</th>
+        <th scope="col">Image</th>
+        <th scope="col">Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td>{{product.id}}</td>
+            <td>{{product.title | uppercase}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency: 'INR'}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.discountPercentage | percentage : 600 :2}}</td>
+            <td [ngStyle]="{fontWeight:'bold',color:product.available?'green':'red'}">{{product.available ? "Product is available" : "Product is not available"}}</td>
+            <td><img [src]="product.thumbnail" alt="" width="200px" height="200px"></td>
+            <button type="button" class="btn btn-primary" [routerLink]="'/prod/checkout'" [state]="product">BuyNow</button>
+            <button type="button" class="btn btn-danger" [routerLink]="'/prod/prod/'+product.id">Details</button>
+         </tr>
+    </tbody>
+  </table>
+
+
+  
+<!-- [routerLink]="'prod/'+ productListComponent.selectedProducts.id" -->

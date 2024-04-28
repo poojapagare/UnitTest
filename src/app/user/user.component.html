@@ -1,0 +1,21 @@
+<input type="text" name="fname" placeholder="Enter Fname" [(ngModel)]="fname" required><br>
+<input type="text" name="lname" placeholder="Enter Lname" [(ngModel)]="lname" required><br>
+<button (click)="saveUser()">Save</button>
+<hr>
+<table>
+    <tr>
+        <th>Fname</th>
+        <th>Lname</th>
+    </tr>
+    <tr *ngFor="let user of fullName">
+        <td>{{user.fname}}</td>
+        <td>{{user.lname}}</td>
+        <button (click)="showUserDetails(user)">User Details</button>
+        <button (click)="getDeleteUser(user)">Delete User</button>
+    </tr>
+</table>
+
+<app-confirm-delete *ngIf="showConfirmDeleteComponent" 
+                    [userDelete]="userDelete"
+                    (onClickUserDelete)="onUserDeleteConfirm($event)"></app-confirm-delete>
+<app-user-details></app-user-details>

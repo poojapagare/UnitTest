@@ -1,0 +1,20 @@
+<div>
+    <button (click)="getHome()">Home</button>
+    <button (click)="getAboutUs()">About Us</button>
+    <button (click)="getContact()">Contact</button>
+</div>
+
+<div [ngSwitch]="tab">
+   <div *ngSwitchCase="'home'">
+       <h3>Home Page</h3>
+       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias dignissimos veniam voluptates! Libero quidem fugiat, earum facere nemo facilis corrupti architecto unde consequuntur omnis quaerat alias iure ex optio minus.</p>
+   </div>
+   <div *ngSwitchCase="'aboutUs'">
+     <h3>About Us</h3>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, distinctio.</p>
+   </div>
+   <div *ngSwitchCase="'contact'">
+       <h3>Contact Us</h3>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut aliquid ea sit aliquam necessitatibus reprehenderit adipisci deserunt velit. Iusto, corporis!</p>
+   </div>
+</div>

@@ -1,0 +1,13 @@
+<app-search (onSearchTextChanged)="getSearchText($event)"></app-search><br>
+
+
+<app-productlist [searchText]="searchText" #productListComponent 
+                 ></app-productlist>
+<hr>
+
+  
+<app-product-details *ngIf="productListComponent.selectedProducts"
+                      [productListComponent] = "productListComponent"
+                      ></app-product-details>
+                     
+<app-view-children></app-view-children>
